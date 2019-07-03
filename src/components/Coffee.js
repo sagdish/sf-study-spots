@@ -5,8 +5,8 @@ class Coffee extends React.Component {
   render() {
     return (
       <div className="MainContainer">
-        <div className="coffeeContainer">
-          <h2>who loves coffee?</h2>
+        <div className="CoffeeContainer">
+          <h2>this is a coffeeshop component</h2>
         </div>
       </div>
     );

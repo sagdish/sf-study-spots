@@ -6,8 +6,8 @@ class Library extends React.Component {
   render() {
     return (
       <div className="MainContainer">
-        <div className="coffeeContainer">
-          <h2>Do you like studying at libraries?</h2>
+        <div className="LibraryContainer">
+          <h2>This is a Library component</h2>
         </div>
       </div>
     );
