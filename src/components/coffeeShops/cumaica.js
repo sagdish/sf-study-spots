@@ -37,10 +37,13 @@ class Cumaica extends React.Component {
 
   onMarkerClick = (props, marker, event) => {
     this.setState({
-      selectedPlace: props,
+      selectedPlace: props.name,
       activeMarker: marker,
       showingInfoWindow: true,
     });
+    console.log('props: ', props);
+    console.log('marker: ', marker);
+    console.log('event: ', event);
   }
 
   onClose = props => {
@@ -82,7 +85,7 @@ class Cumaica extends React.Component {
             onClose={this.onClose}
           >
             <div>
-              <h3>{this.state.selectedPlace.name}</h3>
+              <h3>{this.state.selectedPlace}</h3>
             </div>
           </InfoWindow>
         </Map>
