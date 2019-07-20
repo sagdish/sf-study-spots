@@ -25,13 +25,13 @@ class Cumaica extends React.Component {
 
   componentDidMount() {
     //const rocafe = 'Cumaica'
-    axios
-      .get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=cafe%20enchante&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${apiKey}`)
-      .then(response => {
-         place = response.data;
-         console.log(place);
-      })
-      .catch(err => console.log('my error:', err));
+    // axios
+    //   .get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=cafe%20enchante&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${apiKey}`)
+    //   .then(response => {
+    //      place = response.data;
+    //      console.log(place);
+    //   })
+    //   .catch(err => console.log('my error:', err));
   }
   
 
@@ -57,7 +57,7 @@ class Cumaica extends React.Component {
 
 
   render() {
-    //console.log(process.env.REACT_APP_SFSPOTS_MAPS_API);
+    console.log('google props:', this.props );
     return (
       <div>
         <Map
