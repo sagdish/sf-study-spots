@@ -3,6 +3,7 @@ import React from 'react';
 // import gif from './images/30.gif';
 import './components.css';
 import Cumaica from './coffeeShops/cumaica';
+import Unsplash from '../development/unsplash';
 
 class Coffee extends React.Component {
   // state = {
@@ -14,6 +15,7 @@ class Coffee extends React.Component {
       <div className="MainContainer">
         <div className="CoffeeContainer">
           <h2>this is a coffeeshop component</h2>
+          <Unsplash />
         </div>
         <div className="MapsContainer">
           <Cumaica />
