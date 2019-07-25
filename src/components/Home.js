@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
+
+import ListRenderer from './ListRenderer';
+import './components.css'
 
 function getPlaces() {
   return axios.get(`http://localhost:5000/api/spots`)
     .then(response => {
-      console.log('server response:', response)
+      //console.log('server response:', response)
       return response;
     })
     .catch(err => console.log(err));
@@ -12,7 +15,8 @@ function getPlaces() {
 
 export default function Home() {
   const [ spotList, setSpotList ] = useState([]);
-  //console.log(spotList);
+  console.log(spotList);
+
   useEffect(() => {
     getPlaces()
       .then(response => 
@@ -25,12 +29,12 @@ export default function Home() {
       .then(spots => setSpotList(spots))
       .catch()
   }, []);
-
   return (
-    <div>
-      <h1>This is home component</h1>
+    <div className="MainContainer">
       {spotList.map(spots =>
-      <div key={spots._id}>{spots.name} {spots.position.lat} {spots.rating} </div>
+        <Fragment key={spots._id}>
+          <ListRenderer spots={spots} />
+        </Fragment>
       )}
     </div>
   )
