@@ -8,7 +8,7 @@ class Coffee extends React.Component {
     return (
       <div className="MainContainer">
         <div className="CoffeeContainer">
-          <Link to="/coffee">
+          <Link to="/home">
             <h2>who loves coffee?</h2>
           </Link>
         </div>

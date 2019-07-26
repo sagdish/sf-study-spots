@@ -12,8 +12,8 @@ export default class Unsplash extends Component {
   componentDidMount() {
     axios.get(`https://api.unsplash.com/search/photos?page=${random10}&query=coffee shop&client_id=${process.env.REACT_APP_UNSPLASH_API}`)
       .then(response => {
-        console.log(process.env.REACT_APP_UNSPLASH_API);
-        console.log(response);
+        //console.log(process.env.REACT_APP_UNSPLASH_API);
+        //console.log(response);
         this.setState({ images: response.data.results[2].urls.thumb });
       })
       .catch(err => console.log(err));
