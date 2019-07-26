@@ -16,6 +16,14 @@ class MapsView extends React.Component {
     }
   }
 
+  componentDidMount() {
+    // const spot = this.props.location.state;
+    // const newState = {...this.state, ...spot};
+    // console.log('newState', newState);
+    // this.setState(this.state, spot);
+  }
+  
+
 
 
   
@@ -25,9 +33,9 @@ class MapsView extends React.Component {
       activeMarker: marker,
       showingInfoWindow: true,
     });
-    console.log('props: ', props);
-    console.log('marker: ', marker);
-    console.log('event: ', event);
+    // console.log('props: ', props);
+    // console.log('marker: ', marker);
+    // console.log('event: ', event);
   }
 
   onClose = props => {
@@ -41,21 +49,19 @@ class MapsView extends React.Component {
 
 
   render() {
-    console.log('mapsview component',this.props);
-    //console.log('google props:', this.props );
+    console.log('state',this.state);
+    const { spots } = this.props.location.state;
+    console.log(spots);
     return (
       <div>
         <Map
           google={this.props.google}
           zoom={15}
           // style={mapStyles}
-          initialCenter={{
-            lat: 37.783138,
-            lng: -122.461632
-          }}>
+          initialCenter={spots.position}>
           <Marker
             onClick={this.onMarkerClick}
-            name={'Cumaica Coffee shop'}
+            name={spots.name}
           />
           <Marker
             onClick={this.onMarkerClick}
