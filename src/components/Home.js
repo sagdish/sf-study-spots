@@ -29,21 +29,21 @@ export default function Home() {
         })
       )
       .then(spots => setSpotList(spots))
-      .catch()
+      .catch(err => console.log('error:', err));
   }, []);
   return (
     <div className="MainContainer">
-      {spotList.map(spots =>
-        <Fragment key={spots._id}>
+      {spotList.map(spot =>
+        <Fragment key={spot._id}>
           <div className="CoffeeContainer">
             <Link to={{
-              pathname: '/mapsview',
+              pathname: '/coffee',
               state: {
-                spots,
+                spot,
               },
             }}>
-              <Unsplash />
-              <ListRenderer spots={spots} />
+              {/* <Unsplash /> */}
+              <ListRenderer spot={spot} />
             </Link>
           </div>
         </Fragment>

@@ -49,19 +49,18 @@ class MapsView extends React.Component {
 
 
   render() {
-    console.log('state',this.state);
-    const { spots } = this.props.location.state;
-    console.log(spots);
+    const { spot } = this.props;
+    console.log(spot);
     return (
       <div>
         <Map
           google={this.props.google}
           zoom={15}
           // style={mapStyles}
-          initialCenter={spots.position}>
+          initialCenter={spot.position}>
           <Marker
             onClick={this.onMarkerClick}
-            name={spots.name}
+            name={spot.name}
           />
           <Marker
             onClick={this.onMarkerClick}

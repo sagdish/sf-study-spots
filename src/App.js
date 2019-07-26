@@ -15,7 +15,7 @@ function App() {
       <Route path="/coffee" component={ Coffee } />
       <Route path="/library" component={ Library } />
       <Route path="/home" component= { Home } />
-      <Route path="/mapsview" component={ MapsView } />
+      {/* <Route path="/mapsview" component={ MapsView } /> */}
     </div>
   );
 }
