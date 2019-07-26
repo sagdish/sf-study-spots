@@ -41,7 +41,7 @@ class MapsView extends React.Component {
 
 
   render() {
-    console.log(this.props)
+    console.log('mapsview component',this.props);
     //console.log('google props:', this.props );
     return (
       <div>

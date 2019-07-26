@@ -37,8 +37,10 @@ export default function Home() {
         <Fragment key={spots._id}>
           <div className="CoffeeContainer">
             <Link to={{
-              pathname: '/coffee',
-              state: spots,
+              pathname: '/mapsview',
+              state: {
+                spots,
+              },
             }}>
               <Unsplash />
               <ListRenderer spots={spots} />
