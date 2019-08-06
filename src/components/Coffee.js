@@ -15,7 +15,7 @@ class Coffee extends React.Component {
     return (
       <div className="MainContainer">
         <div className="CoffeeContainer">
-          <h2>{spot.name}</h2>
+          <h4>{spot.name}</h4>
           <p>{spot.neighborhood}</p>
           <p>{spot.type}</p>
           <p>{spot.rating}</p>

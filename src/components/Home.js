@@ -33,19 +33,20 @@ export default function Home() {
       )
       .then(spots => {
         setSpotList(spots)
+        // set next line to true before pushing for produciton or online
         // setLoading(false);
       })
       .catch(err => console.log('error:', err));
   }, []);
 
-  
+  // for development I use timeOut because locally loading not even showing up
+  // delete loader before production
   function loader() {
     setTimeout(() => {
       //console.log('time is up');
       setLoading(false);
     }, 1000)
   }
-
   loader();
 
   return (

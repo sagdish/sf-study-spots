@@ -8,9 +8,9 @@ function ListRenderer({spot}) {
   return (
     <div>
         <Unsplash />
-        <h2>{spot.name}</h2>
-        <h4>{spot.neighborhood}</h4>
-        <h4>{spot.rating}</h4>
+        <h3>{spot.name}</h3>
+        <p>{spot.neighborhood}</p>
+        <p>{spot.rating}</p>
     </div>
   );
 }
