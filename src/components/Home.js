@@ -63,8 +63,8 @@ export default function Home() {
                 pathname: '/coffee',
                 state: {
                   spot,
-                },
-              }}>
+                }
+              }} style={{ textDecoration: 'none' }}>
                 {/* <Unsplash /> */}
                 <ListRenderer spot={spot} />
               </Link>
