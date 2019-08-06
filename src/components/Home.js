@@ -50,11 +50,13 @@ export default function Home() {
 
   return (
     <div>
-      {loading ?
-    <div className="loading-container">
-      <div className="circle"></div>
-      <div className="circle"></div>
-    </div> :
+      {loading ? ( <div className='loading-container'>
+        <div className="loader">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div> ) : (
       <div className="MainContainer">
         {spotList.map(spot =>
           <Fragment key={spot._id}>
@@ -71,7 +73,7 @@ export default function Home() {
             </div>
           </Fragment>
         )}
-      </div> }
+      </div>) }
     </div>
   )
 };
