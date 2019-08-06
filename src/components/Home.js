@@ -2,23 +2,26 @@ import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import loadingGif from './images/30.gif';
 import Unsplash from '../development/unsplash';
 import ListRenderer from './ListRenderer';
 import './components.css'
 
-function getPlaces() {
-  return axios.get(`http://localhost:5000/api/spots`)
-    .then(response => {
-      //console.log('server response:', response)
-      return response;
-    })
-    .catch(err => console.log(err));
+async function getPlaces () {
+  try {
+    const response = await axios.get(`http://localhost:5000/api/spots`);
+    //console.log('server response:', response)
+    return response;
+  }
+  catch (err) {
+    return console.log(err);
+  }
 };
 
 export default function Home() {
   const [ spotList, setSpotList ] = useState([]);
+  const [ loading, setLoading ] = useState(true);
   console.log(spotList);
-
   useEffect(() => {
     getPlaces()
       .then(response => 
@@ -28,27 +31,47 @@ export default function Home() {
           return { name, position, favorite, neighborhood, photos, rating, _id }
         })
       )
-      .then(spots => setSpotList(spots))
+      .then(spots => {
+        setSpotList(spots)
+        // setLoading(false);
+      })
       .catch(err => console.log('error:', err));
   }, []);
+
+  
+  function loader() {
+    setTimeout(() => {
+      //console.log('time is up');
+      setLoading(false);
+    }, 1000)
+  }
+
+  loader();
+
   return (
-    <div className="MainContainer">
-      {spotList.map(spot =>
-        <Fragment key={spot._id}>
-          <div className="CoffeeContainer">
-            <Link to={{
-              pathname: '/coffee',
-              state: {
-                spot,
-              },
-            }}>
-              {/* <Unsplash /> */}
-              <ListRenderer spot={spot} />
-            </Link>
-          </div>
-        </Fragment>
-      )}
+    <div>
+      {loading ?
+    <div className="loading-container">
+      <div className="circle"></div>
+      <div className="circle"></div>
+    </div> :
+      <div className="MainContainer">
+        {spotList.map(spot =>
+          <Fragment key={spot._id}>
+            <div className="CoffeeContainer">
+              <Link to={{
+                pathname: '/coffee',
+                state: {
+                  spot,
+                },
+              }}>
+                {/* <Unsplash /> */}
+                <ListRenderer spot={spot} />
+              </Link>
+            </div>
+          </Fragment>
+        )}
+      </div> }
     </div>
   )
-  
 };

@@ -1,0 +1,17 @@
+.thumbNail {
+  height: 120px;
+}
+
+.thumbNail img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  visibility: visible;
+  opacity: 1;
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1;}
+}
