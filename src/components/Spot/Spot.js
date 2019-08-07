@@ -12,7 +12,7 @@ class Spot extends React.Component {
     const { spot } = this.props.location.state;
     return (
       <div className="MainContainer">
-        <div className="CoffeeContainer">
+        <div className="CardContainer">
           <h4>{spot.name}</h4>
           <p>{spot.neighborhood}</p>
           <p>{spot.type}</p>

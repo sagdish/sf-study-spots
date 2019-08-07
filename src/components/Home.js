@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import Loader from './UI/Loader/Loader';
 import CardView from './CardView/CardView';
 import './components.css'
 
@@ -49,17 +50,11 @@ export default function Home() {
 
   return (
     <div>
-      {loading ? ( <div className='loading-container'>
-        <div className="loader">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div> ) : (
+      {loading ? <Loader /> : (
       <div className="MainContainer">
         {spotList.map(spot =>
           <Fragment key={spot._id}>
-            <div className="CoffeeContainer">
+            <div className="CardContainer">
               <Link to={{
                 pathname: '/spot',
                 state: { spot }
