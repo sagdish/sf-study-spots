@@ -1,20 +1,14 @@
 import React from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-import axios from 'axios';
 
 import '../components.css';
 
-
-// const mapStyles = {
-//   width: '80%',
-//   height: '250px'
-// };
 const apiKey = process.env.REACT_APP_SFSPOTS_MAPS_API;
 let place;
 
-class Cumaica extends React.Component {
-  constructor() {
-    super();
+class MapsView extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
@@ -22,28 +16,26 @@ class Cumaica extends React.Component {
     }
   }
 
-
   componentDidMount() {
-    //const rocafe = 'Cumaica'
-    // axios
-    //   .get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=cafe%20enchante&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${apiKey}`)
-    //   .then(response => {
-    //      place = response.data;
-    //      console.log(place);
-    //   })
-    //   .catch(err => console.log('my error:', err));
+    // const spot = this.props.location.state;
+    // const newState = {...this.state, ...spot};
+    // console.log('newState', newState);
+    // this.setState(this.state, spot);
   }
   
 
+
+
+  
   onMarkerClick = (props, marker, event) => {
     this.setState({
       selectedPlace: props.name,
       activeMarker: marker,
       showingInfoWindow: true,
     });
-    console.log('props: ', props);
-    console.log('marker: ', marker);
-    console.log('event: ', event);
+    // console.log('props: ', props);
+    // console.log('marker: ', marker);
+    // console.log('event: ', event);
   }
 
   onClose = props => {
@@ -57,28 +49,27 @@ class Cumaica extends React.Component {
 
 
   render() {
-    console.log('google props:', this.props );
+    const { spot } = this.props;
+    console.log(spot);
     return (
       <div>
         <Map
           google={this.props.google}
           zoom={15}
           // style={mapStyles}
-          initialCenter={{
-            lat: 37.783138,
-            lng: -122.461632
-          }}>
+          initialCenter={spot.position}>
           <Marker
             onClick={this.onMarkerClick}
-            name={'Cumaica Coffee shop'}
+            name={spot.name}
           />
-          <Marker
+          {/* below is example how to add another marker: */}
+          {/* <Marker
             onClick={this.onMarkerClick}
             title={'The marker`s title will appear as a tooltip.'}
             name={'SOMA'}
             position={{lat: 37.778519, lng: -122.405640}}
             
-          />
+          /> */}
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
@@ -96,4 +87,4 @@ class Cumaica extends React.Component {
 
 export default GoogleApiWrapper({
   apiKey
-})(Cumaica);
+})(MapsView);

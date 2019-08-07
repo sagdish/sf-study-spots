@@ -7,6 +7,7 @@
 
 
 /* start of loading animation  */
+/* Loader impplementation credit to Traversy Media youtube chanel */
 .loading-container {
   display: flex;
   justify-content: center;

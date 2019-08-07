@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 import './components.css';
 
+
+// This will be greeting component, which will welcome new user 
+// and suggests to exlore it.
+
+
 class Coffee extends React.Component {
   render() {
     return (

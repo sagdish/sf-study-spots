@@ -1,11 +1,9 @@
 import React from 'react';
 
-// import gif from './images/30.gif';
-import './components.css';
-//import Cumaica from './coffeeShops/cumaica';
-import MapsView from './coffeeShops/MapsView';
+import '../components.css';
+import MapsView from '../Maps/MapsView';
 
-class Coffee extends React.Component {
+class Spot extends React.Component {
   // state = {
   //   loaded: false,
   // }
@@ -28,4 +26,4 @@ class Coffee extends React.Component {
   }
 }
 
-export default Coffee;
+export default Spot;

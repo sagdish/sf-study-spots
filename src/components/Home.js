@@ -2,9 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import loadingGif from './images/30.gif';
-import Unsplash from '../development/unsplash';
-import ListRenderer from './ListRenderer';
+import CardView from './CardView/CardView';
 import './components.css'
 
 async function getPlaces () {
@@ -63,13 +61,10 @@ export default function Home() {
           <Fragment key={spot._id}>
             <div className="CoffeeContainer">
               <Link to={{
-                pathname: '/coffee',
-                state: {
-                  spot,
-                }
+                pathname: '/spot',
+                state: { spot }
               }} style={{ textDecoration: 'none' }}>
-                {/* <Unsplash /> */}
-                <ListRenderer spot={spot} />
+                <CardView spot={spot} />
               </Link>
             </div>
           </Fragment>

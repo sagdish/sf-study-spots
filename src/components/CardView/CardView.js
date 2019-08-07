@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Unsplash from '../development/unsplash';
+import Unsplash from '../Unsplash/unsplash';
 
-function ListRenderer({spot}) {
-  //console.log('listRenderer', spots);
+function CardView({spot}) {
+  //console.log('CardView', spots);
 
   return (
     <div>
@@ -15,4 +15,4 @@ function ListRenderer({spot}) {
   );
 }
 
-export default ListRenderer;
+export default CardView;
