@@ -2,21 +2,22 @@ import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import Loader from './UI/Loader/Loader';
-import CardView from './CardView/CardView';
-import './components.css'
+import Loader from '../UI/Loader/Loader';
+import CardView from '../CardView/CardView';
+import '../components.css'
 
 async function getPlaces () {
   try {
-    const response = await axios.get(`http://localhost:5000/api/spots`);
-    // console.log('server response:', response)
+    const response = await axios.get(`http://localhost:5000/api/spots/coffeelist`);
+    console.log('server response:', response.data)
     return response;
-    // return fetch(`http://localhost:5000/api/spots`).then(data => data.json())
   }
   catch (err) {
     return console.log(err);
   }
 };
+
+getPlaces();
 
 export default function Home() {
   const [ spotList, setSpotList ] = useState([]);
@@ -27,8 +28,12 @@ export default function Home() {
       .then(response => 
         response.data.map(spots => {
           //console.log({ name, position, favorite, neighborhood, photos, rating });
-          const { name, position, favorite, neighborhood, photos, rating, _id } = spots;
-          return { name, position, favorite, neighborhood, photos, rating, _id }
+          const { name, photos, rating, id } = spots;
+          const position = spots.geometry.location;
+          const neighborhood = spots.plus_code.compound_code.split(' ').filter((el, i) => (
+            i === 1 || i === 2)).join(' ').slice(0, -1);
+          //console.log(neighborhood);
+          return { name, position, neighborhood, photos, rating, id }
         })
       )
       .then(spots => {
@@ -54,7 +59,7 @@ export default function Home() {
       {loading ? <Loader /> : (
       <div className="MainContainer">
         {spotList.map(spot =>
-          <Fragment key={spot._id}>
+          <Fragment key={spot.id}>
             <div className="CardContainer">
               <Link to={{
                 pathname: '/spot',

@@ -43,7 +43,7 @@
   filter: grayscale(80%);
 }
 
-.CoffeeContainer:hover {
+.CardContainer:hover {
   transition: opacity 0.5s ease-in;
   /* opacity: 1;
   filter: none; */

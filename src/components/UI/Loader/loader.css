@@ -15,7 +15,7 @@
 
 /* Loader circles */
 .loader > span {
-  background: blueviolet;
+  background: #790f91;
   border-radius: 50%;
   margin: 5rem 0.5rem;
   animation: bouncingLoader 0.6s infinite alternate;
