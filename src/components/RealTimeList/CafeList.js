@@ -6,18 +6,26 @@ import Loader from '../UI/Loader/Loader';
 import CardView from '../CardView/CardView';
 import '../components.css'
 
+const mapsApi = process.env.REACT_APP_SFSPOTS_MAPS_API;
+
 async function getPlaces () {
   try {
-    const response = await axios.get(`http://localhost:5000/api/spots/coffeelist`);
-    console.log('server response:', response.data)
-    return response;
+    // const response = await axios.get(`https://sf-spots-back.herokuapp.com/api/spots/coffeelist`);
+    // const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.790754,-122.451414&name=&keyword=study,quiet&rankby=distance&key=${mapsApi}&type=cafe`
+    // const response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.790754,-122.451414&name=&keyword=study,quiet&rankby=distance&key=${mapsApi}&type=cafe`);
+    // const response = await axios.get(`http://localhost:5000/api/spots/coffeelist`);
+    // const response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.790754,-122.451414&name=&keyword=study,quiet&rankby=distance&key=${mapsApi}&type=cafe`,
+    const response = await axios.get('https://sf-spots-back-copy.sagdi.now.sh/api/spots/coffeelist');
+    
+    console.log('server response:', response)
+    return response.data;
   }
   catch (err) {
     return console.log(err);
   }
 };
 
-getPlaces();
+// getPlaces();
 
 export default function Home() {
   const [ spotList, setSpotList ] = useState([]);
@@ -26,7 +34,8 @@ export default function Home() {
   useEffect(() => {
     getPlaces()
       .then(response => 
-        response.data.map(spots => {
+        // response.data.map(spots => {
+        response.map(spots => {
           //console.log({ name, position, favorite, neighborhood, photos, rating });
           const { name, photos, rating, id } = spots;
           const position = spots.geometry.location;
@@ -39,20 +48,20 @@ export default function Home() {
       .then(spots => {
         setSpotList(spots)
         // set next line to true before pushing for produciton or online
-        // setLoading(false);
+        setLoading(false);
       })
       .catch(err => console.log('error:', err));
   }, []);
 
   // for development I use timeOut because locally loading not even showing up
   // delete loader before production
-  function loader() {
-    setTimeout(() => {
-      //console.log('time is up');
-      setLoading(false);
-    }, 1000)
-  }
-  loader();
+  // function loader() {
+  //   setTimeout(() => {
+  //     //console.log('time is up');
+  //     setLoading(false);
+  //   }, 1000)
+  // }
+  // loader();
 
   return (
     <div>

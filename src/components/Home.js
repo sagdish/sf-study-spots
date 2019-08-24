@@ -8,7 +8,11 @@ import './components.css'
 
 async function getPlaces () {
   try {
-    const response = await axios.get(`http://localhost:5000/api/spots`);
+    // local fetching:
+    // const response = await axios.get(`http://localhost:5000/api/spots`);
+    
+    // remote fetching:
+    const response = await axios.get(`https://sf-spots-back.herokuapp.com/api/spots`);
     // console.log('server response:', response)
     return response;
     // return fetch(`http://localhost:5000/api/spots`).then(data => data.json())
@@ -34,7 +38,7 @@ export default function Home() {
       .then(spots => {
         setSpotList(spots)
         // set next line to true before pushing for produciton or online
-        // setLoading(false);
+        setLoading(false);
       })
       .catch(err => console.log('error:', err));
   }, []);
@@ -47,7 +51,7 @@ export default function Home() {
       setLoading(false);
     }, 1000)
   }
-  loader();
+  // loader();
 
   return (
     <div>

@@ -37,10 +37,11 @@
   width: 200px;
   min-width: 300px;
   height: 210px;
-  border: 1px solid black;
+  /* border: 1px solid #D3D3D3; */
   margin: 20px auto;
   /* opacity: 0.85; */
   filter: grayscale(80%);
+  box-shadow: -1px 1px 10px 0px #ececec;
 }
 
 .CardContainer:hover {
@@ -48,6 +49,8 @@
   /* opacity: 1;
   filter: none; */
   filter: saturate(150%);
+
+  box-shadow: -5px 5px 20px 0px #D3D3D3;
 }
 
 .MapsContainer {
