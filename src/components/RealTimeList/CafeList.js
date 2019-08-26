@@ -65,6 +65,7 @@ export default function Home() {
 
   return (
     <div>
+      <h1>Я тебя люблю!!! моя Жена родная!</h1>
       {loading ? <Loader /> : (
       <div className="MainContainer">
         {spotList.map(spot =>

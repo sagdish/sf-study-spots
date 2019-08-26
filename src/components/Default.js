@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'antd';
 
 import './components.css';
 
@@ -14,7 +15,7 @@ class Coffee extends React.Component {
       <div className="MainContainer">
         <div className="CoffeeContainer">
           <Link to="/home">
-            <h2>who loves coffee?</h2>
+            <Button type="primary">who loves coffee?</Button>
           </Link>
         </div>
 

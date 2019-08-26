@@ -12,6 +12,7 @@ async function getPlaces () {
     // const response = await axios.get(`http://localhost:5000/api/spots`);
     
     // remote fetching:
+    // const response = await axios.get(`https://sf-spots-back.herokuapp.com/api/spots`);
     const response = await axios.get(`https://sf-spots-back.herokuapp.com/api/spots`);
     // console.log('server response:', response)
     return response;
