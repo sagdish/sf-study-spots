@@ -14,13 +14,11 @@ const { Header, Footer, Sider, Content } = Layout;
 
 function App() {
   return (
-    
     <div className="App">
       <Switch>
         <Route exact path="/" component={ Default }/>
-        {/* <Layout path="\/(.*)"> */}
-        <Layout>
-          <Sider style={{
+        <Layout className="AntdLayout">
+          <Sider className="AntdSider" style={{
             overflow: "auto",
             height: "100vh",
             background: "#fff"
@@ -35,7 +33,7 @@ function App() {
 
             {/* Side Navigation: */}
             <div className="sideNavContent">
-              <p>Show by:</p> 
+              <p>Show by:</p>
 
               <Link to="/cafelist">
                 <p>Location</p>
@@ -51,8 +49,12 @@ function App() {
 
             {/* Header component */}
             <Header style={{
-              background: "#fff"
-            }}>Header</Header>
+              background: "#fff",
+              fontSize: "20px",
+            }}>
+              <span className="full-text">SF Study Spots - Places where you can study in San Francisco Bay Area</span>
+              <span className="short-text">SF Study Spots</span>
+            </Header>
 
             {/* Main content */}
             <Content>  

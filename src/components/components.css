@@ -1,8 +1,16 @@
+
 .welcome {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.full-text {
+  display: inline;
+}
+.short-text {
+  display: none;
 }
 
 .MainContainer {
@@ -70,8 +78,6 @@ p {
   line-height: 1.3;
 }
 
-
-
 .logoImage {
   margin-top: 15px;
 }
@@ -84,4 +90,16 @@ p {
   margin-left: 25px;
   font-size: 20px;
   text-align: start;
+}
+
+@media screen and (max-width: 800px) {
+  .AntdSider {
+    display: none;
+  }
+  .full-text {
+    display: none;
+  }
+  .short-text {
+    display: inline-block;
+  }
 }
