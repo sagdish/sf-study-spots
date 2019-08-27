@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import { Layout } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 
 import Default from './components/Default';
 import Spot from './components/Spot/Spot';
@@ -11,6 +11,7 @@ import Logo from './components/images/SFspotsLogodark.png';
 import './App.css';
 
 const { Header, Footer, Sider, Content } = Layout;
+const { SubMenu } = Menu;
 
 function App() {
   return (
@@ -19,9 +20,9 @@ function App() {
         <Route exact path="/" component={ Default } />
         <>
         <Layout>
-          <Sider className="AntdSider" style={{
-            overflow: "auto",
-            height: "100vh",
+          <Sider className="AntdSider" width={220} style={{
+            // overflow: "auto",
+            // height: "100vh",
             background: "#fff"
           }}>
 
@@ -31,18 +32,31 @@ function App() {
                 <img src={ Logo } alt="logo" style={{ width: "180px" }} />
               </Link>
             </div>
-
+            
             {/* Side Navigation: */}
             <div className="sideNavContent">
               <p>Show by:</p>
 
-              <Link to="/cafelist">
-                <p>Location</p>
-              </Link>
+              <Menu
+                mode="inline"
+                defaultSelectedKeys={["1"]}
+                // defaultOpenKeys={['1']}
+                style={{ height: '100%'}}
+              >
+                <Menu.Item key="1">
+                  <Link to="/home">
+                    <Icon type="edit" />My preference
+                  </Link>
+                </Menu.Item>
 
-              <Link to="/home">
-                <p>My preference</p>
-              </Link>
+                <Menu.Item key="2">
+                  <Link to="/cafelist">
+                    <Icon type="compass" />SF Locations
+                  </Link>
+                </Menu.Item>
+
+              </Menu>
+
             </div>
 
           </Sider>

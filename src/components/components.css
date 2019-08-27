@@ -104,6 +104,7 @@ p {
   margin-left: 25px;
   font-size: 20px;
   text-align: start;
+  text-justify: auto;
 }
 
 @media screen and (max-width: 800px) {
