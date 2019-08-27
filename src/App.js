@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-
+import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 
 import Default from './components/Default';
@@ -14,34 +13,35 @@ const { Header, Footer, Sider, Content } = Layout;
 
 function App() {
   return (
+    
     <div className="App">
-      <Route exact path="/" component={ Default }/>
-      <Layout>
-        <Sider style={{
-          overflow: "auto",
-          height: "100vh",
-          background: "#fff"
-          }}>side menu
-        </Sider>
-
+      <Switch>
+        <Route exact path="/" component={ Default }/>
         <Layout>
-          <Header style={{
+          <Sider style={{
+            overflow: "auto",
+            height: "100vh",
             background: "#fff"
-          }}>Header</Header>
-          <Content>
-            
-            <Route path="/spot" component={ Spot } />
-            <Route path="/library" component={ Library } />
-            <Route path="/home" component= { Home } />
-            <Route path="/cafelist" component= { CafeList } />
-            {/* <Route path="/mapsview" component={ MapsView } /> */}
-  
-          </Content>
-          <Footer>Footer</Footer>
+          }}>side menu
+          </Sider>
+
+          <Layout>
+            <Header style={{
+              background: "#fff"
+            }}>Header</Header>
+            <Content>
+              
+              <Route path="/spot" component={ Spot } />
+              <Route path="/library" component={ Library } />
+              <Route path="/home" component= { Home } />
+              <Route path="/cafelist" component= { CafeList } />
+              {/* <Route path="/mapsview" component={ MapsView } /> */}
+    
+            </Content>
+            <Footer>Footer</Footer>
+          </Layout>
         </Layout>
-      </Layout>
-
-
+      </Switch>
     </div>
   );
 }
