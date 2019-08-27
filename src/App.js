@@ -16,8 +16,9 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" component={ Default }/>
-        <Layout className="AntdLayout">
+        <Route exact path="/" component={ Default } />
+        <>
+        <Layout>
           <Sider className="AntdSider" style={{
             overflow: "auto",
             height: "100vh",
@@ -57,17 +58,17 @@ function App() {
             </Header>
 
             {/* Main content */}
-            <Content>  
-              <Route path="/spot" component={ Spot } />
-              <Route path="/library" component={ Library } />
-              <Route path="/home" component= { Home } />
-              <Route path="/cafelist" component= { CafeList } />
-              {/* <Route path="/mapsview" component={ MapsView } /> */}
+            <Content>
+                <Route path="/spot" component={ Spot } />
+                <Route path="/library" component={ Library } />
+                <Route path="/home" component= { Home } />
+                <Route path="/cafelist" component= { CafeList } />
             </Content>
 
             <Footer>Footer</Footer>
           </Layout>
         </Layout>
+        </>
       </Switch>
     </div>
   );

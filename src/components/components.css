@@ -9,10 +9,15 @@
 .welcome h1 {
   font-size: 70px;
 }
-.welcome p {
+.introText {
   text-align: justify;
-  max-width: 400px;
+  width: 350px;
+  /* width: 400px; */
   font-size: 20px;
+}
+
+.slideReveal {
+  height: 100px;
 }
 
 .full-text {

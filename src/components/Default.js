@@ -1,48 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import Fade from 'react-reveal/Fade'
 
 import './components.css';
-import { hidden } from 'ansi-colors';
-
 
 // This will be greeting component, which will welcome new user 
 // and suggests to exlore it.
 
-
-class Coffee extends React.Component {
-  state = {
-    showButton: false,
-  }
-
+function Coffee () {
   
-  render() {
+  const [ showButton, setButton ] = useState(false);
 
-    setTimeout(()=> {
-      this.setState({ showButton: true })
-    }, 5000)
+  setTimeout(()=> {
+    setButton(true)
+  }, 5000);
 
-    return (
-      <div className="welcome">
-        <Fade right>
-          <h1>WELCOME</h1>
-        </Fade>
-        <p>Hi, I decided to create this app as a guide of the study friendly coffee shops in San Francisco. 
-          In my journey learning how to code, one of the big obstacles were finding suitable place to study and focus.
-        </p>
+  return (
+    <div className="welcome">
+      <div>
+      <Fade right>
+        <h1>WELCOME</h1>
+      </Fade>
+      <p className="introText">Hi, I decided to create this app as a guide of the study friendly coffee shops in San Francisco. 
+        In my journey learning how to code, one of the big obstacles were finding suitable place to study and focus.
+      </p>
+      </div>
+      <div className="slideReveal">
+        {showButton ?
         <Link to="/home">
-          {this.state.showButton?
           <Fade top><Button size="large" style={{
               backgroundColor: "#8a4ddb",
               color: "white"
             }}>
             Explore It
-          </Button></Fade> : <button style={{display: "hidden", marginTop: "22px"}}></button> }
-        </Link>
+          </Button></Fade> 
+        </Link> : null }
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Coffee;
