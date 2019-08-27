@@ -16,10 +16,10 @@ function App() {
   return (
     
     <div className="App">
-      <Route exact path="/" component={ Default }/>
       <Switch>
+        <Route exact path="/" component={ Default }/>
+        {/* <Layout path="\/(.*)"> */}
         <Layout>
-
           <Sider style={{
             overflow: "auto",
             height: "100vh",
@@ -28,7 +28,7 @@ function App() {
 
             {/* Top logo image */}
             <div className="logoImage">
-              <Link to="/home">
+              <Link to="/">
                 <img src={ Logo } alt="logo" style={{ width: "180px" }} />
               </Link>
             </div>
@@ -47,20 +47,22 @@ function App() {
             </div>
 
           </Sider>
-
           <Layout>
+
+            {/* Header component */}
             <Header style={{
               background: "#fff"
             }}>Header</Header>
-            <Content>
-              
+
+            {/* Main content */}
+            <Content>  
               <Route path="/spot" component={ Spot } />
               <Route path="/library" component={ Library } />
               <Route path="/home" component= { Home } />
               <Route path="/cafelist" component= { CafeList } />
               {/* <Route path="/mapsview" component={ MapsView } /> */}
-    
             </Content>
+
             <Footer>Footer</Footer>
           </Layout>
         </Layout>
