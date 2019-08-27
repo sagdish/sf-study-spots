@@ -64,8 +64,7 @@ export default function Home() {
   // loader();
 
   return (
-    <div>
-      <h1>Я тебя люблю!!! моя Жена родная!</h1>
+    <>
       {loading ? <Loader /> : (
       <div className="MainContainer">
         {spotList.map(spot =>
@@ -81,6 +80,6 @@ export default function Home() {
           </Fragment>
         )}
       </div>) }
-    </div>
+    </>
   )
 };
