@@ -6,6 +6,7 @@ import Loader from './UI/Loader/Loader';
 import CardView from './CardView/CardView';
 import './components.css'
 import { inherits } from 'util';
+import { Pagination } from 'antd';
 
 async function getPlaces () {
   try {
@@ -47,18 +48,19 @@ export default function Home() {
 
   // for development I use timeOut because locally loading not even showing up
   // delete loader before production
-  function loader() {
-    setTimeout(() => {
-      //console.log('time is up');
-      setLoading(false);
-    }, 1000)
-  }
+  // function loader() {
+  //   setTimeout(() => {
+  //     //console.log('time is up');
+  //     setLoading(false);
+  //   }, 1000)
+  // }
   // loader();
 
   return (
     <div>
       {loading ? <Loader /> : (
       <div className="MainContainer">
+        {/* Pagination will go here */}
         {spotList.map(spot =>
           <Fragment key={spot._id}>
             <div className="CardContainer">

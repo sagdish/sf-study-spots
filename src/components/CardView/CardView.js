@@ -8,10 +8,10 @@ function CardView({spot}) {
 
   return (
     <div>
-        <Unsplash />
-        <p style={{fontWeight: "bold", fontSize: "18px"}}>{spot.name}</p>
-        <p>{spot.neighborhood}</p>
-        <p>{spot.rating}</p>
+      <Unsplash />
+      <p style={{fontWeight: "bold", fontSize: "18px"}}>{spot.name}</p>
+      <p>{spot.neighborhood}</p>
+      <p>{spot.rating}</p>
     </div>
   );
 }
