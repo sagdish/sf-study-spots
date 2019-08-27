@@ -16,6 +16,7 @@ class Coffee extends React.Component {
         <div className="CoffeeContainer">
           <Link to="/home">
             <Button type="primary">who loves coffee?</Button>
+            {/* <button type="primary">who loves coffee?</button> */}
           </Link>
         </div>
 

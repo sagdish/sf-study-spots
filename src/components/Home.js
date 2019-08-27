@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Loader from './UI/Loader/Loader';
 import CardView from './CardView/CardView';
 import './components.css'
+import { inherits } from 'util';
 
 async function getPlaces () {
   try {
