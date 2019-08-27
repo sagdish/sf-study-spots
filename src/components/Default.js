@@ -12,19 +12,16 @@ import './components.css';
 class Coffee extends React.Component {
   render() {
     return (
-      <div className="MainContainer">
-        <div className="CoffeeContainer">
+      <div className="welcome">
           <Link to="/home">
-            <Button type="primary">who loves coffee?</Button>
+            <Button size="large" style={{
+                backgroundColor: "#8a4ddb",
+                color: "white"
+              }}>
+              Explore My Web App
+            </Button>
             {/* <button type="primary">who loves coffee?</button> */}
           </Link>
-        </div>
-
-        <div className="LibraryContainer">
-          <Link to="/library">
-            <h2>Do you prefer studying in libraries?</h2>
-          </Link>
-        </div>
       </div>
     );
   }
