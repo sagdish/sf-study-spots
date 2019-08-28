@@ -15,7 +15,7 @@ async function getPlaces () {
     
     // remote fetching:
     // const response = await axios.get(`https://sf-spots-back.herokuapp.com/api/spots`);
-    const response = await axios.get(`https://sf-spots-back.herokuapp.com/api/spots`);
+    const response = await axios.get(`https://sf-spots-back-copy.sagdi.now.sh/api/spots`);
     // console.log('server response:', response)
     return response;
     // return fetch(`http://localhost:5000/api/spots`).then(data => data.json())
@@ -25,7 +25,7 @@ async function getPlaces () {
   }
 };
 
-export default function Home() {
+export default function Home(props) {
   const [ spotList, setSpotList ] = useState([]);
   const [ loading, setLoading ] = useState(true);
   console.log(spotList);
@@ -55,7 +55,7 @@ export default function Home() {
   //   }, 1000)
   // }
   // loader();
-
+  console.log('current path', props.location);
   return (
     <div>
       {loading ? <Loader /> : (

@@ -3,15 +3,15 @@ import React from 'react';
 import Unsplash from '../Unsplash/unsplash';
 import { inherits } from 'util';
 
-function CardView({spot}) {
+function CardView(props) {
   //console.log('CardView', spots);
 
   return (
     <div>
-      <Unsplash />
-      <p style={{fontWeight: "bold", fontSize: "18px"}}>{spot.name}</p>
-      <p>{spot.neighborhood}</p>
-      <p>{spot.rating}</p>
+      <Unsplash origin={props.origin} />
+      <p style={{fontWeight: "bold", fontSize: "18px"}}>{props.spot.name}</p>
+      <p>{props.spot.neighborhood}</p>
+      <p>{props.spot.rating}</p>
     </div>
   );
 }

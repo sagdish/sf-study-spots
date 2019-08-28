@@ -4,14 +4,13 @@ import { Layout, Menu, Icon } from 'antd';
 
 import Default from './components/Default';
 import Spot from './components/Spot/Spot';
-import Library from './components/old&depricated/Library';
+import Libraries from './components/RealTimeList/LibraryList';
 import Home from './components/Home';
 import CafeList from './components/RealTimeList/CafeList';
-import Logo from './components/images/SFspotsLogodark.png';
+import Logo from './components/images/MainLogo.png';
 import './App.css';
 
 const { Header, Footer, Sider, Content } = Layout;
-const { SubMenu } = Menu;
 
 function App() {
   return (
@@ -38,9 +37,9 @@ function App() {
               <p>Show by:</p>
 
               <Menu
+              
                 mode="inline"
                 defaultSelectedKeys={["1"]}
-                // defaultOpenKeys={['1']}
                 style={{ height: '100%'}}
               >
                 <Menu.Item key="1">
@@ -52,6 +51,12 @@ function App() {
                 <Menu.Item key="2">
                   <Link to="/cafelist">
                     <Icon type="compass" />SF Locations
+                  </Link>
+                </Menu.Item>
+
+                <Menu.Item key="3">
+                  <Link to="/libraries">
+                  <Icon type="book" />Libraries
                   </Link>
                 </Menu.Item>
 
@@ -74,7 +79,7 @@ function App() {
             {/* Main content */}
             <Content>
                 <Route path="/spot" component={ Spot } />
-                <Route path="/library" component={ Library } />
+                <Route path="/libraries" component={ Libraries } />
                 <Route path="/home" component= { Home } />
                 <Route path="/cafelist" component= { CafeList } />
             </Content>

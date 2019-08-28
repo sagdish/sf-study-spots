@@ -4,15 +4,20 @@ import axios from 'axios';
 import './unsplash.css';
 
 export default class Unsplash extends Component {
-  state = {
-    images: [],
-    loaded: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: [],
+      loaded: false,
+    }
   }
   
   componentDidMount() {
     const random10 = Math.floor(Math.random() * 10);
     const images = [];
-    axios.get(`https://api.unsplash.com/search/photos?page=${random10}&query=coffee%20shop&client_id=${process.env.REACT_APP_UNSPLASH_API}`)
+    // check to see if origin is coming from library, if yes - search for library related photos
+    const fromLib = this.props.origin === "library" ? "library" : "coffee"
+    axios.get(`https://api.unsplash.com/search/photos?page=${random10}&query=${fromLib}%20shop&client_id=${process.env.REACT_APP_UNSPLASH_API}`)
       .then(response => {
         //console.log(process.env.REACT_APP_UNSPLASH_API);
         // console.log(response);
@@ -28,8 +33,8 @@ export default class Unsplash extends Component {
   render() {
     const random10 = Math.floor(Math.random() * 10);
     const randomImage = this.state.images[random10];
-    // console.log('unsplash state', this.state);
-    console.log('random image ', randomImage);
+    // console.log('unsplash props', this.props);
+    // console.log('random image ', randomImage);
     return (
       <div className="thumbNail">
         {this.state.loaded ? 

@@ -56,7 +56,8 @@
 
 .CardContainer {
   padding-top: 15px;
-  min-width: 300px;
+  /* min-width: 300px; */
+  width: 300px;
   height: 230px;
   /* border: 1px solid #D3D3D3; */
   margin: 20px auto;
@@ -93,7 +94,7 @@ p {
 }
 
 .logoImage {
-  margin-top: 15px;
+  margin-top: 22px;
 }
 
 .sideNavContent {
@@ -104,7 +105,6 @@ p {
   margin-left: 25px;
   font-size: 20px;
   text-align: start;
-  text-justify: auto;
 }
 
 @media screen and (max-width: 800px) {

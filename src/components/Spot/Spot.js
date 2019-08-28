@@ -11,7 +11,7 @@ class Spot extends React.Component {
   render() {
     const { spot } = this.props.location.state;
     return (
-      <div className="MainContainer">
+      <div className="MainContainer" style={{height: "78vh"}}>
         <div className="CardContainer">
           <h4>{spot.name}</h4>
           <p>{spot.neighborhood}</p>
