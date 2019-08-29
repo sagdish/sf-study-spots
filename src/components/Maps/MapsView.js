@@ -4,7 +4,6 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import '../components.css';
 
 const apiKey = process.env.REACT_APP_SFSPOTS_MAPS_API;
-let place;
 
 class MapsView extends React.Component {
   constructor(props) {
@@ -22,10 +21,6 @@ class MapsView extends React.Component {
     // console.log('newState', newState);
     // this.setState(this.state, spot);
   }
-  
-
-
-
   
   onMarkerClick = (props, marker, event) => {
     this.setState({
