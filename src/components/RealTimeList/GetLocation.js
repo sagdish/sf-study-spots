@@ -9,7 +9,20 @@ import '../components.css'
 async function sendLocAndGetRes(position) {
   try {
     if (!position) return;
-    const response = await axios.post(`http://localhost:5000/api/spots/current`, position);
+    const response = await axios.get(`https://sf-spots-back-copy.sagdi.now.sh/api/spots/current`, {
+      params: {
+        lat: position.lat,
+        lng: position.lng
+      }
+    });
+
+    // const response = await axios.get(`http://localhost:5000/api/spots/current`, {
+    //   params: {
+    //     lat: position.lat,
+    //     lng: position.lng
+    //   }
+    // });
+    // const response = await axios.post(`http://localhost:5000/api/spots/current`, position);
     console.log('from sendLocAndGetRes function: ', response.data)
     return response.data;
   }

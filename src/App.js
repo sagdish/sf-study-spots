@@ -46,19 +46,25 @@ function App() {
               >
                 <Menu.Item key="1">
                   <Link to="/home">
-                    <Icon type="edit" />My preference
+                    <Icon type="edit" theme="twoTone" />My preference
                   </Link>
                 </Menu.Item>
 
                 <Menu.Item key="2">
                   <Link to="/cafelist">
-                    <Icon type="compass" />SF Locations
+                    <Icon type="coffee" />SF Locations
                   </Link>
                 </Menu.Item>
 
                 <Menu.Item key="3">
                   <Link to="/libraries">
-                  <Icon type="book" />Libraries
+                  <Icon type="read" />Libraries
+                  </Link>
+                </Menu.Item>
+
+                <Menu.Item key="4 ">
+                  <Link to="/current">
+                    <Icon type="compass" />Your Spots!
                   </Link>
                 </Menu.Item>
 
