@@ -1,17 +1,20 @@
 import React from 'react';
+import Locator from '../RealTimeList/GetLocation';
 
 // import './components.css';
 
-class Library extends React.Component {
+class Test extends React.Component {
   render() {
     return (
+
       <div className="MainContainer">
         <div className="LibraryContainer">
-          <h2>This is a Library component</h2>
+          <h2>This is test component</h2>
+          <Locator />
         </div>
       </div>
     );
   }
 }
 
-export default Library;
+export default Test;

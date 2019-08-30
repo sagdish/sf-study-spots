@@ -7,8 +7,10 @@ import Spot from './components/Spot/Spot';
 import Libraries from './components/RealTimeList/LibraryList';
 import Home from './components/Home';
 import CafeList from './components/RealTimeList/CafeList';
+import LocationGetter from './components/RealTimeList/GetLocation';
 import Logo from './components/images/MainLogo.png';
 import './App.css';
+
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -82,6 +84,7 @@ function App() {
                 <Route path="/libraries" component={ Libraries } />
                 <Route path="/home" component= { Home } />
                 <Route path="/cafelist" component= { CafeList } />
+                <Route path="/current" component={ LocationGetter } />
             </Content>
 
             <Footer>Footer</Footer>
