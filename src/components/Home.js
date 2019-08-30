@@ -6,7 +6,6 @@ import Loader from './UI/Loader/Loader';
 import CardView from './CardView/CardView';
 import './components.css'
 import { inherits } from 'util';
-import { Pagination } from 'antd';
 
 async function getPlaces () {
   try {

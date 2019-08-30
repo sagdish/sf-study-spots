@@ -15,14 +15,6 @@ async function sendLocAndGetRes(position) {
         lng: position.lng
       }
     });
-
-    // const response = await axios.get(`http://localhost:5000/api/spots/current`, {
-    //   params: {
-    //     lat: position.lat,
-    //     lng: position.lng
-    //   }
-    // });
-    // const response = await axios.post(`http://localhost:5000/api/spots/current`, position);
     console.log('from sendLocAndGetRes function: ', response.data)
     return response.data;
   }

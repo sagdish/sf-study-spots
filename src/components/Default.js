@@ -23,7 +23,7 @@ function Coffee () {
         <h1>WELCOME</h1>
       </Fade>
       <p className="introText">Hi, I decided to create this app as a guide of the study friendly coffee shops in San Francisco. 
-        In my journey learning how to code, one of the big obstacles were finding suitable place to study and focus.
+        In my ongoing journey learning how to code, one of the big obstacles is finding suitable place to study and focus.
       </p>
       </div>
       <div className="slideReveal">
