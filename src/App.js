@@ -93,9 +93,19 @@ function App() {
                 <Route path="/current" component={ LocationGetter } />
             </Content>
 
-            <Footer style={{textAlign: "end", fontSize: 10, position:"bottom",height: "50px"}}>
+            <Footer style={{textAlign: "end", fontSize: 12, position:"bottom",height: "60px"}}>
               © SF Study Spots. <span style={{fontStyle: "italic"}}>
                 Developed by Sagdi Formanov</span>
+                <a href="https://www.instagram.com/forsi_ph" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{marginLeft: 10, fontSize: 20}}
+                ><Icon type="instagram" /></a>
+                <a href="https://www.linkedin.com/in/sagdi-formanov/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{marginLeft: 15, fontSize: 20}}
+                ><Icon type="linkedin" /></a>
             </Footer>
           </Layout>
         </Layout>
