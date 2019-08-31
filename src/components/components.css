@@ -107,6 +107,13 @@ p {
   text-align: start;
 }
 
+Footer {
+  text-align: end;
+  font-size: 12px !important;
+  height: 30;
+  padding: 7px;
+}
+
 @media screen and (max-width: 800px) {
   .AntdSider {
     display: none;
@@ -116,5 +123,14 @@ p {
   }
   .short-text {
     display: inline-block;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .introText {
+    width: 300px;
+  }
+  .welcome h1 {
+    font-size: 50px;
   }
 }

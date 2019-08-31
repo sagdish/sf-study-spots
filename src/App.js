@@ -93,7 +93,7 @@ function App() {
                 <Route path="/current" component={ LocationGetter } />
             </Content>
 
-            <Footer style={{textAlign: "end", fontSize: 12, position:"bottom",height: "60px"}}>
+            <Footer>
               © SF Study Spots. <span style={{fontStyle: "italic"}}>
                 Developed by Sagdi Formanov</span>
                 <a href="https://www.instagram.com/forsi_ph" 
