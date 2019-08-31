@@ -80,14 +80,14 @@
   line-height: 15px;
 }
 
-.MapsContainer {
+/* .MapsContainer {
   width: 40%;
   min-width: 300px;
   height: 300px;
   border: 1px solid teal;
   position: relative;
   margin: 20px auto;
-}
+} */
 
 p {
   line-height: 1.3;
