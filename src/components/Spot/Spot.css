@@ -2,6 +2,7 @@
   display: flex;
   max-width: 1200px;
   /* border: 1px solid red; */
+  height: 120%;
   margin: 10px auto;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -19,7 +20,8 @@
   padding-top: 15px;
   /* min-width: 300px; */
   width: 35%;
-  height: 60vh;
+  min-width: 300px;
+  height: 73vh;
   /* border: 1px solid #D3D3D3; */
   margin: 20px auto;
   /* opacity: 0.85; */
@@ -31,11 +33,38 @@
 }
 
 .MapsContainer {
-  width: 60%;
+  width: 55%;
   min-width: 300px;
-  height: 60vh;
+  height: 73vh;
   /* border: 1px solid teal; */
   position: relative;
   margin: 20px auto;
-  box-shadow: -1px 1px 10px 0px #ececec;
+  box-shadow: -2px 2px 10px 0px #ececec;
+}
+
+@media screen and (max-width: 800px) {
+  .InfoContainer {
+    width: 45%;
+    min-width: 350px;
+  }
+  
+  .MapsContainer {
+    width: 60%;
+    min-width: 350px;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .InfoContainer {
+    width: 80%;
+    min-width: 350px;
+    height: 50%;
+  }
+  
+  .MapsContainer {
+    width: 80%;
+    min-width: 350px;
+    height: 60%;
+  }
 }

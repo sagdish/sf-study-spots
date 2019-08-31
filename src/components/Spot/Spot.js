@@ -13,7 +13,7 @@ class Spot extends React.Component {
     const { spot } = this.props.location.state;
     return (
       // <div className="MainContainer" style={{height: "78vh"}}>
-      <div className="SpotView" style={{height: "78vh"}}>
+      <div className="SpotView">
         {/* <div className="CardContainer"> */}
         <div className="InfoContainer">
           <p style={{fontStyle: "italic", fontSize: '10px'}}>
