@@ -34,7 +34,7 @@
 
 .MapsContainer {
   width: 55%;
-  min-width: 300px;
+  min-width: 350px;
   height: 71vh;
   /* border: 1px solid teal; */
   position: relative;
@@ -59,12 +59,12 @@
   .InfoContainer {
     width: 80%;
     min-width: 350px;
-    height: 50%;
+    /* height: 50%; */
   }
   
   .MapsContainer {
     width: 80%;
     min-width: 350px;
-    height: 60%;
+    /* height: 60%; */
   }
 }
