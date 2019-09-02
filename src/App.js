@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/" component={ Default } />
         <>
         <Layout>
-          <Sider className="AntdSider" width={220} style={{
+          <Sider className="AntdSider" style={{
             // overflow: "auto",
             // height: "100vh",
             background: "#fff"
@@ -62,7 +62,7 @@ function App() {
                   </Link>
                 </Menu.Item>
 
-                <Menu.Item key="4 ">
+                <Menu.Item key="4">
                   <Link to="/current">
                     <Icon type="compass" />Your Spots!
                   </Link>

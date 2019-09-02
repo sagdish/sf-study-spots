@@ -113,10 +113,17 @@ Footer {
   height: 30;
   padding: 7px;
 }
+.hamburger {
+  display: none;
+}
 
 @media screen and (max-width: 800px) {
   .AntdSider {
     display: none;
+  }
+  .hamburger{
+    display: inline-block;
+    margin-right: 60px;
   }
   .full-text {
     display: none;

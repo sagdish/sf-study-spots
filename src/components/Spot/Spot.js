@@ -1,18 +1,20 @@
 import React from 'react';
+import Fade from 'react-reveal/Fade';
 
 import '../components.css';
 import './Spot.css';
 import MapsView from '../Maps/MapsView';
 
 class Spot extends React.Component {
-  // state = {
-  //   loaded: false,
-  // }
-
+ 
   render() {
-    const { spot } = this.props.location.state;
+    let spot = null;
+    if (this.props.location.state) {
+      spot = this.props.location.state.spot;
+    }
+
     return (
-      // <div className="MainContainer" style={{height: "78vh"}}>
+      spot ? (
       <div className="SpotView">
         {/* <div className="CardContainer"> */}
         <div className="InfoContainer">
@@ -27,6 +29,15 @@ class Spot extends React.Component {
           <MapsView spot={spot} />
         </div>
       </div>
+      ) : (
+          <Fade right>
+            <h1
+              style={{marginTop: 120}}
+            >
+              Please select place first
+            </h1>
+          </Fade>
+      )
     );
   }
 }
