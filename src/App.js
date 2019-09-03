@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Modal, Drawer } from 'antd';
 
 import Default from './components/Default';
 import Spot from './components/Spot/Spot';
@@ -15,6 +15,8 @@ import './App.css';
 const { Header, Footer, Sider, Content } = Layout;
 
 function App() {
+  const [ drawerVisible, setDrawer ] = useState(false);
+
   return (
     <div className="App">
       <Switch>
@@ -80,6 +82,48 @@ function App() {
               background: "#fff",
               fontSize: "20px",
             }}>
+              <Icon className="hamburger" type="menu" onClick={e => setDrawer(true)}/>
+              <Drawer
+                title="Show by:"
+                placement="left"
+                width={200}
+                visible={drawerVisible}
+                onClose={e => setDrawer(false)}
+                closable={true}
+                // afterVisibleChange={e => setDrawer(false)}
+                destroyOnClose={true}
+              >
+                <Menu
+                  mode="inline"
+                  defaultSelectedKeys={["1"]}
+                  style={{ height: '100%'}}
+                >
+                  <Menu.Item key="1" onClick={e => setDrawer(false)}>
+                    <Link to="/home">
+                      <Icon type="edit" theme="twoTone" />My preference
+                    </Link>
+                  </Menu.Item>
+
+                  <Menu.Item key="2" onClick={e => setDrawer(false)}>
+                    <Link to="/cafelist">
+                      <Icon type="coffee" />SF Locations
+                    </Link>
+                  </Menu.Item>
+
+                  <Menu.Item key="3" onClick={e => setDrawer(false)}>
+                    <Link to="/libraries">
+                    <Icon type="read" />Libraries
+                    </Link>
+                  </Menu.Item>
+
+                  <Menu.Item key="4" onClick={e => setDrawer(false)}>
+                    <Link to="/current">
+                      <Icon type="compass" />Your Spots!
+                    </Link>
+                  </Menu.Item>
+
+                </Menu>
+              </Drawer>
               <span className="full-text">SF Study Spots - Places where you can study in San Francisco Bay Area</span>
               <span className="short-text">SF Study Spots</span>
             </Header>
