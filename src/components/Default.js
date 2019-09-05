@@ -14,7 +14,7 @@ function Coffee () {
 
   setTimeout(()=> {
     setButton(true)
-  }, 5000);
+  }, 2000);
 
   return (
     <div className="welcome">

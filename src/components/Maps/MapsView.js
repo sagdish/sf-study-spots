@@ -14,13 +14,6 @@ class MapsView extends React.Component {
       selectedPlace: {},
     }
   }
-
-  componentDidMount() {
-    // const spot = this.props.location.state;
-    // const newState = {...this.state, ...spot};
-    // console.log('newState', newState);
-    // this.setState(this.state, spot);
-  }
   
   onMarkerClick = (props, marker, event) => {
     this.setState({
@@ -45,7 +38,7 @@ class MapsView extends React.Component {
 
   render() {
     const { spot } = this.props;
-    console.log(spot);
+    // console.log(spot);
     return (
       <div>
         <Map
@@ -54,6 +47,7 @@ class MapsView extends React.Component {
           // style={mapStyles}
           initialCenter={spot.position}>
           <Marker
+            title={spot.name}
             onClick={this.onMarkerClick}
             name={spot.name}
           />
@@ -65,7 +59,8 @@ class MapsView extends React.Component {
             position={{lat: 37.778519, lng: -122.405640}}
             
           /> */}
-          <InfoWindow
+
+          {/* <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
             onClose={this.onClose}
@@ -73,7 +68,7 @@ class MapsView extends React.Component {
             <div>
               <h3>{this.state.selectedPlace}</h3>
             </div>
-          </InfoWindow>
+          </InfoWindow> */}
         </Map>
       </div>
     )

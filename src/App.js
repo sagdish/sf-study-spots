@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import { Layout, Menu, Icon, Modal, Drawer } from 'antd';
+import { Layout, Menu, Icon, Drawer } from 'antd';
 
 import Default from './components/Default';
 import Spot from './components/Spot/Spot';
@@ -13,6 +13,8 @@ import './App.css';
 
 
 const { Header, Footer, Sider, Content } = Layout;
+
+console.log('drawer', Drawer);
 
 function App() {
   const [ drawerVisible, setDrawer ] = useState(false);
@@ -41,7 +43,6 @@ function App() {
               <p>Show by:</p>
 
               <Menu
-              
                 mode="inline"
                 defaultSelectedKeys={["1"]}
                 style={{ height: '100%'}}
@@ -60,7 +61,7 @@ function App() {
 
                 <Menu.Item key="3">
                   <Link to="/libraries">
-                  <Icon type="read" />Libraries
+                    <Icon type="read" />Libraries
                   </Link>
                 </Menu.Item>
 
@@ -82,7 +83,7 @@ function App() {
               background: "#fff",
               fontSize: "20px",
             }}>
-              <Icon className="hamburger" type="menu" onClick={e => setDrawer(true)}/>
+              <Icon className="hamburger" type="menu" onClick={e => setDrawer(true)} />
               <Drawer
                 title="Show by:"
                 placement="left"
@@ -90,8 +91,7 @@ function App() {
                 visible={drawerVisible}
                 onClose={e => setDrawer(false)}
                 closable={true}
-                // afterVisibleChange={e => setDrawer(false)}
-                destroyOnClose={true}
+                destroyOnClose={false}
               >
                 <Menu
                   mode="inline"
@@ -130,11 +130,11 @@ function App() {
 
             {/* Main content */}
             <Content>
-                <Route path="/spot" component={ Spot } />
-                <Route path="/libraries" component={ Libraries } />
-                <Route path="/home" component= { Home } />
-                <Route path="/cafelist" component= { CafeList } />
-                <Route path="/current" component={ LocationGetter } />
+              <Route path="/spot" component={ Spot } />
+              <Route path="/libraries" component={ Libraries } />
+              <Route path="/home" component= { Home } />
+              <Route path="/cafelist" component= { CafeList } />
+              <Route path="/current" component={ LocationGetter } />
             </Content>
 
             <Footer>
@@ -153,7 +153,7 @@ function App() {
             </Footer>
           </Layout>
         </Layout>
-        </>
+        </> 
       </Switch>
     </div>
   );

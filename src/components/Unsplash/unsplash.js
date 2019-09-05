@@ -16,8 +16,8 @@ export default class Unsplash extends Component {
     const random10 = Math.floor(Math.random() * 10);
     const images = [];
     // check to see if origin is coming from library, if yes - search for library related photos
-    const fromLib = this.props.origin === "library" ? "library" : "coffee"
-    axios.get(`https://api.unsplash.com/search/photos?page=${random10}&query=${fromLib}%20shop&client_id=${process.env.REACT_APP_UNSPLASH_API}`)
+    const keyWord = this.props.origin === "library" ? "library" : "coffee"
+    axios.get(`https://api.unsplash.com/search/photos?page=${random10}&query=${keyWord}%20shop&client_id=${process.env.REACT_APP_UNSPLASH_API}`)
       .then(response => {
         //console.log(process.env.REACT_APP_UNSPLASH_API);
         // console.log(response);
