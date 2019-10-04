@@ -16,7 +16,7 @@ const { Header, Footer, Sider, Content } = Layout;
 
 console.log('drawer', Drawer);
 
-function App() {
+function App(props) {
   const [ drawerVisible, setDrawer ] = useState(false);
 
   return (
@@ -67,7 +67,7 @@ function App() {
 
                 <Menu.Item key="4">
                   <Link to="/current">
-                    <Icon type="compass" />Your Spots!
+                    <Icon type="compass" />Spots Near You
                   </Link>
                 </Menu.Item>
 

@@ -11,7 +11,9 @@ function Spot(props) {
   if (props.location.state) {
     spot = props.location.state.spot;
   }
-
+  
+  console.log(spot);
+  
   return (
     spot ? (
     <div className="SpotView">

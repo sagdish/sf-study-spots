@@ -74,6 +74,7 @@
   filter: none; */
   filter: saturate(150%);
   box-shadow: -5px 5px 20px 0px #D3D3D3;
+  transform: scale(1.01);
 }
 
 .CardContainer p {

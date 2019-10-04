@@ -11,7 +11,7 @@ class MapsView extends React.Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},
+      selectedPlace: null,
     }
   }
   
@@ -60,7 +60,7 @@ class MapsView extends React.Component {
             
           /> */}
 
-          {/* <InfoWindow
+          <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
             onClose={this.onClose}
@@ -68,7 +68,7 @@ class MapsView extends React.Component {
             <div>
               <h3>{this.state.selectedPlace}</h3>
             </div>
-          </InfoWindow> */}
+          </InfoWindow>
         </Map>
       </div>
     )

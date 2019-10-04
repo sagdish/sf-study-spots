@@ -35,7 +35,7 @@ export default function LocationGetter() {
             const coords = pos.coords;
             console.log('your current location: ', coords);
             setPosition({ lat: coords.latitude, lng: coords.longitude });
-        }, err => console.error(err), {timeout: 5000}) // add timeout here: {timeout: 5000}
+        }, err => console.error(err)) // add timeout here: {timeout: 5000}
       } else {
         alert("please enable your locaiton");
       }
