@@ -11,7 +11,6 @@ import LocationGetter from './components/RealTimeList/GetLocation';
 import Logo from './components/images/MainLogo.png';
 import './App.css';
 
-
 const { Header, Footer, Sider, Content } = Layout;
 
 console.log('drawer', Drawer);

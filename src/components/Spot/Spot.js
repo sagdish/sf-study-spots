@@ -32,9 +32,7 @@ function Spot(props) {
     </div>
     ) : (
         <Fade right>
-          <h1
-            style={{marginTop: 120}}
-          >
+          <h1 style={{marginTop: 120}}>
             Please select place first
           </h1>
         </Fade>
