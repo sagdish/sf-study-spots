@@ -8,15 +8,29 @@ import Libraries from './components/RealTimeList/LibraryList';
 import Home from './components/Home';
 import CafeList from './components/RealTimeList/CafeList';
 import LocationGetter from './components/RealTimeList/GetLocation';
+import Input from './components/pages/Input';
 import Logo from './components/images/MainLogo.png';
 import './App.css';
 
 const { Header, Footer, Sider, Content } = Layout;
 
-console.log('drawer', Drawer);
+// console.log('drawer', Drawer);
 
 function App(props) {
   const [ drawerVisible, setDrawer ] = useState(false);
+
+  // console.log('app.js path: ', window.location.pathname);
+
+  // next chunk of code is for stupid antd ui library default selected option hightlight. 
+  // I regret using antdesign in the first place.
+  let selectedOption = "1";
+  if (window.location.pathname === "/cafelist") {
+    selectedOption = "2";
+  } else if (window.location.pathname === "/libraries") {
+    selectedOption = "3";
+  } else if (window.location.pathname === "/current") {
+    selectedOption = "4";
+  }
 
   return (
     <div className="App">
@@ -43,7 +57,7 @@ function App(props) {
 
               <Menu
                 mode="inline"
-                defaultSelectedKeys={["1"]}
+                defaultSelectedKeys={[selectedOption]}
                 style={{ height: '100%'}}
               >
                 <Menu.Item key="1">
@@ -134,6 +148,7 @@ function App(props) {
               <Route path="/home" component= { Home } />
               <Route path="/cafelist" component= { CafeList } />
               <Route path="/current" component={ LocationGetter } />
+              <Route path="/add" component={ Input } />
             </Content>
 
             <Footer>

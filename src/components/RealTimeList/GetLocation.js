@@ -8,7 +8,10 @@ import '../components.css'
 
 async function sendLocAndGetRes(position) {
   try {
-    if (!position) return;
+    if (!position) {
+      console.log("cannot obtain location, check browser permissions")
+      return;
+    }
     const response = await axios.get(`https://sf-spots-back-copy.sagdi.now.sh/api/spots/current`, {
       params: {
         lat: position.lat,

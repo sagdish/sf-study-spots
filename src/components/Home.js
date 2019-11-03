@@ -39,7 +39,7 @@ export default function Home(props) {
       )
       .then(spots => {
         setSpotList(spots)
-        // set next line to true before pushing for produciton or online
+        // set next line to false before pushing for produciton or online
         setLoading(false);
       })
       .catch(err => console.log('error:', err));
