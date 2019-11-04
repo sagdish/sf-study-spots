@@ -31,11 +31,18 @@ const handleSubmit = (values, tools) => {
   delete newSpot.latitude
   console.log(newSpot);
 
-  axios.post(`https://sf-spots-back-copy.sagdi.now.sh/api/spots`, newSpot)
+  // axios.post(`https://sf-spots-back-copy.sagdi.now.sh/api/spots`, newSpot)
   // axios.post(`http://localhost:5000/api/spots`, newSpot)
+  
+  axios({
+    method: 'post',
+    url: 'https://sf-spots-back-copy.sagdi.now.sh/api/spots',
+    data: newSpot,
+    headers: {'Access-Control-Allow-Origin': '*'},
+  })
     .then(res => {
       tools.resetForm();
-      console.log(res.data);
+      console.log(res);
     })
     .catch(err => console.log("server error: ", err))
     .finally();

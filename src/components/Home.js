@@ -13,8 +13,8 @@ async function getPlaces () {
     // const response = await axios.get(`http://localhost:5000/api/spots`);
     
     // remote fetching:
-    // const response = await axios.get(`https://sf-spots-back.herokuapp.com/api/spots`);
-    const response = await axios.get(`https://sf-spots-back-copy.sagdi.now.sh/api/spots`);
+    // const response = await axios.get(`https://sf-spots-back-copy.sagdi.now.sh/api/spots`);
+    const response = await axios.get(`https://sf-spots-back-copy-b6bvcjz26.now.sh/api/spots`);
     // console.log('server response:', response)
     return response;
     // return fetch(`http://localhost:5000/api/spots`).then(data => data.json())

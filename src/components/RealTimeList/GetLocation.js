@@ -12,7 +12,7 @@ async function sendLocAndGetRes(position) {
       console.log("cannot obtain location, check browser permissions")
       return;
     }
-    const response = await axios.get(`https://sf-spots-back-copy.sagdi.now.sh/api/spots/current`, {
+    const response = await axios.get(`https://sf-spots-back-copy-b6bvcjz26.now.sh/api/spots/current`, {
       params: {
         lat: position.lat,
         lng: position.lng
