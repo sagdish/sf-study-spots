@@ -35,6 +35,7 @@ function App(props) {
   return (
     <div className="App">
       <Switch>
+        {/* first thing to see: */}
         <Route exact path="/" component={ Default } />
         <>
         <Layout>

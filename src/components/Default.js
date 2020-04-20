@@ -29,12 +29,14 @@ function Coffee () {
       <div className="slideReveal">
         {showButton ?
         <Link to="/home">
-          <Fade top><Button size="large" style={{
+          <Fade top>
+            <Button size="large" style={{
               backgroundColor: "#8a4ddb",
               color: "white"
             }}>
-            Explore It
-          </Button></Fade> 
+              Explore It
+            </Button>
+          </Fade> 
         </Link> : null }
       </div>
     </div>

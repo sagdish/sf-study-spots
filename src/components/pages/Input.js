@@ -18,41 +18,36 @@ const validate = ({ name, type }) => {
 export default function Input() {
 const [ newSpot, setNewSpot ] = useState({});
 
-const handleSubmit = (values, tools) => {
-  // console.log(values);
-  const newSpot = {
-    position: {
-      lat: values.latitude,
-      lng: values.longtitude,
-    },
-    ...values
-  }
-  delete newSpot.longtitude
-  delete newSpot.latitude
-  console.log(newSpot);
+  const handleSubmit = (values, tools) => {
+    // console.log(values);
+    const newSpot = {
+      position: {
+        lat: values.latitude,
+        lng: values.longtitude,
+      },
+      ...values
+    }
+    delete newSpot.longtitude
+    delete newSpot.latitude
+    console.log(newSpot);
 
-  // axios.post(`https://sf-spots-back-copy.sagdi.now.sh/api/spots`, newSpot)
-  // axios.post(`http://localhost:5000/api/spots`, newSpot)
-  
-  axios({
-    method: 'post',
-    url: 'https://sf-spots-back-copy.sagdi.now.sh/api/spots',
-    data: newSpot,
-    headers: {'Access-Control-Allow-Origin': '*'},
-  })
-    .then(res => {
-      tools.resetForm();
-      console.log(res);
+    axios({
+      method: 'post',
+      url: 'https://sf-spots-back-copy.sagdi.now.sh/api/spots',
+      data: newSpot,
+      headers: {'Access-Control-Allow-Origin': '*'},
     })
-    .catch(err => console.log("server error: ", err))
-    .finally();
-    
-}
+      .then(res => {
+        tools.resetForm();
+        console.log(res);
+      })
+      .catch(err => console.log("server error: ", err))
+      .finally();
+  }
   return (
     <Formik 
       initialValues={{ name: '', type: '', neighborhood: '', latitude: '', longtitude: '', rating: '' }}
       onSubmit={handleSubmit}
-
       // introductory Onsubmit:
       // onSubmit={(values, tools) => {
       //   console.log(values, tools);
