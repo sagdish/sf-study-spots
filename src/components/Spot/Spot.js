@@ -1,24 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
+import axios from 'axios';
+import fs from 'fs';
 
 import '../components.css';
 import './Spot.css';
 import MapsView from '../Maps/MapsView';
 
+async function getPhoto(photoreference) {
+
+  const url = await axios.get('http://localhost:5000/api/spots/photo', {
+    params: {
+      photoreference
+    }
+  });
+
+  console.log('image', url);
+  return url.data;
+}
+
 function Spot(props) {
+
+  //1 set state instead of var
+  //2 call to places api to get photo const photo = 'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyBteViGo-N3uCUN2NWHlAnPg1ow8hOoplk&photoreference=CmRaAAAAatRnbGQcNn2Lu23dL30yedDqUaFslwk0vHeUkB5Uuypn-MsrBFIiyTWYRZpS6eSPXwJ1OaXquTIZ4Wc6_WDiRRw8YUKnxKHt30374R8QLGbrIJUhetIDHOOWncnPyeo3EhDXQpkhWC9y3NNERenNFTMsGhSzAcuWrTo-sqAy7VdD4VSZfsg8Rw&maxheight=500'
+  // 3 display photo
+  const [ spot, setSpot ] = useState(null)
+  const [photo, setPhoto] = useState(null)
+  useEffect(() => {
+    if (props.location.state) {
+      // spot1 = props.location.state.spot;
+      setSpot(props.location.state.spot)
+    }
+    if (spot && spot.photos && spot.photos.length) {
+      console.log(spot);
+      getPhoto(spot.photos[0].photo_reference)
+        .then(res => {
+          setPhoto(res);
+        })
+        .catch();
+    }
+
+  }, [props.location.state, props.location.state.spot, spot]);
   
-  let spot = null;
-  if (props.location.state) {
-    spot = props.location.state.spot;
-  }
-  
-  console.log(spot);
+  console.log(photo);
   
   return (
     spot ? (
     <div className="SpotView">
       {/* <div className="CardContainer"> */}
       <div className="InfoContainer">
+      <img alt='' src={photo}/>
         <p style={{fontStyle: "italic", fontSize: '10px'}}>
           soon photo of the spot <br/> will appear here</p>
         <h2>{spot.name}</h2>
