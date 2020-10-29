@@ -31,7 +31,7 @@ export default class Unsplash extends Component {
   render() {
     const random10 = Math.floor(Math.random() * 10);
     const randomImage = this.state.images[random10];
-    console.log('images', this.state.images)
+    // console.log('images', this.state.images)
     // console.log('unsplash props', this.props);
     // console.log('random image ', randomImage);
     return (
