@@ -62,19 +62,21 @@
   /* border: 1px solid #D3D3D3; */
   margin: 20px auto;
   /* opacity: 0.85; */
-  filter: grayscale(80%);
-  box-shadow: -1px 1px 10px 0px #ececec;
+  filter: grayscale(70%);
+  box-shadow: -1px 1px 20px 0px #ececec;
   background-color: #ffffff;
   border-radius: 7px;
+  transition: 0.2s ease-in;
 }
 
 .CardContainer:hover {
   transition: opacity 0.5s ease-in;
   /* opacity: 1;
   filter: none; */
-  filter: saturate(150%);
+  filter: saturate(110%);
   box-shadow: -5px 5px 20px 0px #D3D3D3;
-  transform: scale(1.01);
+  /* transform: scale(1.01); */
+  transition: 0.2s ease-in;
 }
 
 .CardContainer p {
