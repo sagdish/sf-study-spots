@@ -12,7 +12,10 @@ async function sendLocAndGetRes(position) {
       console.log("cannot obtain location, check browser permissions")
       return;
     }
-    const response = await axios.get(`https://sf-spots-back-copy-b6bvcjz26.now.sh/api/spots/current`, {
+    const response = await axios.get(
+      // `https://sf-spots-back-copy-b6bvcjz26.now.sh/api/spots/current`
+      'http://localhost:5000/api/spots/current'
+      , {
       params: {
         lat: position.lat,
         lng: position.lng
@@ -54,9 +57,7 @@ export default function LocationGetter() {
           response.map(spots => {
           const { name, photos, rating, id } = spots;
           const position = spots.geometry.location;
-          const neighborhood = spots.plus_code.compound_code.split(' ').filter((el, i) => (
-            i === 1 || i === 2)).join(' ').slice(0, -1);
-          // console.log(neighborhood);
+          const neighborhood = spots.vicinity;
           return { name, position, neighborhood, photos, rating, id }
         })
       )

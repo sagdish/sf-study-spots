@@ -39,9 +39,14 @@ export default function Home() {
           //console.log({ name, position, favorite, neighborhood, photos, rating });
           const { name, photos, rating, id } = spots;
           const position = spots.geometry.location;
-          const neighborhood = spots.plus_code.compound_code.split(' ').filter((el, i) => (
-            i === 1 || i === 2)).join(' ').slice(0, -1);
+
+          // const neighborhood = spots.plus_code.compound_code.split(' ').filter((el, i) => (
+          //   i === 1 || i === 2))
+          //   .join(' ').slice(0, );
+          const neighborhood = spots.vicinity;
+
           //console.log(neighborhood);
+
           return { name, position, neighborhood, photos, rating, id }
         })
       )
