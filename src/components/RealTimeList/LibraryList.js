@@ -32,10 +32,10 @@ export default function Home() {
         // response.data.map(spots => {
         response.map(spots => {
           //console.log({ name, position, favorite, neighborhood, photos, rating });
-          const { name, photos, rating, id } = spots;
+          const { name, photos, rating, place_id } = spots;
           const position = spots.geometry.location;
           const neighborhood = spots.vicinity;
-          return { name, position, neighborhood, photos, rating, id }
+          return { name, position, neighborhood, photos, rating, place_id }
         })
       )
       .then(spots => {
@@ -52,7 +52,7 @@ export default function Home() {
       {loading ? <Loader /> : (
       <div className="MainContainer">
         {spotList.map(spot =>
-          <Fragment key={spot.id}>
+          <Fragment key={spot.place_id}>
             <div className="CardContainer">
               <Link to={{
                 pathname: '/spot',

@@ -9,7 +9,7 @@ import '../components.css'
 async function sendLocAndGetRes(position) {
   try {
     if (!position) {
-      console.log("cannot obtain location, check browser permissions")
+      alert("cannot obtain location, check browser permissions")
       return;
     }
     const response = await axios.get(
@@ -55,10 +55,10 @@ export default function LocationGetter() {
       sendLocAndGetRes(position)
         .then(response =>
           response.map(spots => {
-          const { name, photos, rating, id } = spots;
+          const { name, photos, rating, place_id } = spots;
           const position = spots.geometry.location;
           const neighborhood = spots.vicinity;
-          return { name, position, neighborhood, photos, rating, id }
+          return { name, position, neighborhood, photos, rating, place_id }
         })
       )
       .then(spots => {
@@ -80,7 +80,7 @@ export default function LocationGetter() {
       {loading ? <Loader /> : (
       <div className="MainContainer">
         {spotList.map(spot =>
-          <Fragment key={spot.id}>
+          <Fragment key={spot.place_id}>
             <div className="CardContainer">
               <Link to={{
                 pathname: '/spot',
