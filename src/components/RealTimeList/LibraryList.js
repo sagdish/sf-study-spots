@@ -9,8 +9,8 @@ import '../components.css'
 async function getPlaces () {
   try {
     const response = await axios.get(
-      // 'https://sf-spots-back-copy-b6bvcjz26.now.sh/api/spots/libraries'
-      `http://localhost:5000/api/spots/libraries`
+      'https://sf-spots-back-zeit.vercel.app/api/spots/libraries'
+      // `http://localhost:5000/api/spots/libraries`
       );
     console.log('server response:', response)
     return response.data;
