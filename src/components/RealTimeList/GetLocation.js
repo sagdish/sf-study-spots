@@ -13,8 +13,8 @@ async function sendLocAndGetRes(position) {
       return;
     }
     const response = await axios.get(
-      // `https://sf-spots-back-copy-b6bvcjz26.now.sh/api/spots/current`
-      'http://localhost:5000/api/spots/current'
+      // 'http://localhost:5000/api/spots/current'
+      'https://sf-spots-back-zeit.vercel.app/api/spots/current'
       , {
       params: {
         lat: position.lat,
