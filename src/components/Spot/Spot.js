@@ -10,7 +10,7 @@ import loading from '../images/Spin.svg';
 
 async function getPhoto(photoreference) {
 
-  const url = await axios.get('http://localhost:5000/api/spots/photo', {
+  const url = await axios.get('https://sf-spots-back-zeit.vercel.app/api/spots/photo', {
     params: {
       photoreference
     }
