@@ -12,7 +12,7 @@ async function getPlaces () {
       'https://sf-spots-back-zeit.vercel.app/api/spots/libraries'
       // `http://localhost:5000/api/spots/libraries`
       );
-    console.log('server response:', response)
+    // console.log('server response:', response)
     return response.data;
   }
   catch (err) {
@@ -25,7 +25,7 @@ async function getPlaces () {
 export default function Home() {
   const [ spotList, setSpotList ] = useState([]);
   const [ loading, setLoading ] = useState(true);
-  console.log(spotList);
+  // console.log(spotList);
   useEffect(() => {
     getPlaces()
       .then(response => 

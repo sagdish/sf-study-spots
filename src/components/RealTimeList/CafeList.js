@@ -13,7 +13,7 @@ async function getPlaces () {
     // const response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.790754,-122.451414&name=&keyword=study,quiet&rankby=distance&key=${mapsApi}&type=cafe`);
     // const response = await axios.get(`http://localhost:5000/api/spots/coffeelist`);
     const response = await axios.get(`https://sf-spots-back-zeit.vercel.app/api/spots/coffeelist`)
-    console.log('server response:', response)
+    // console.log('server response:', response)
     return response.data;
   }
   catch (err) {
@@ -26,7 +26,7 @@ async function getPlaces () {
 export default function Home() {
   const [ spotList, setSpotList ] = useState([]);
   const [ loading, setLoading ] = useState(true);
-  console.log(spotList);
+  // console.log(spotList);
   useEffect(() => {
     getPlaces()
       .then(response => 

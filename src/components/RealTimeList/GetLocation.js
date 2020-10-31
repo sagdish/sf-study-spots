@@ -21,7 +21,7 @@ async function sendLocAndGetRes(position) {
         lng: position.lng
       }
     });
-    console.log('from sendLocAndGetRes function: ', response.data)
+    // console.log('from sendLocAndGetRes function: ', response.data)
     return response.data;
   }
   catch(err) {
@@ -39,7 +39,7 @@ export default function LocationGetter() {
       if (navigator && navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(pos => {
             const coords = pos.coords;
-            console.log('your current location: ', coords);
+            // console.log('your current location: ', coords);
             setPosition({ lat: coords.latitude, lng: coords.longitude });
         }, err => console.error(err)) // add timeout here: {timeout: 5000}
       } else {
@@ -64,7 +64,7 @@ export default function LocationGetter() {
       .then(spots => {
         setSpotList(spots)
         setLoading(false);
-        console.log('state of spot final: ', spots);
+        // console.log('state of spot final: ', spots);
       })
       .catch(err => console.log('error:', err));
     }
