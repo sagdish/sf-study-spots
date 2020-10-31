@@ -27,7 +27,7 @@ async function getPlaces () {
 export default function Home(props) {
   const [ spotList, setSpotList ] = useState([]);
   const [ loading, setLoading ] = useState(true);
-  console.log(spotList);
+  // console.log(spotList);
   useEffect(() => {
     getPlaces()
       .then(response => 

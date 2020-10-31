@@ -10,12 +10,9 @@ const mapsApi = process.env.REACT_APP_SFSPOTS_MAPS_API;
 
 async function getPlaces () {
   try {
-    // const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.790754,-122.451414&name=&keyword=study,quiet&rankby=distance&key=${mapsApi}&type=cafe`
     // const response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.790754,-122.451414&name=&keyword=study,quiet&rankby=distance&key=${mapsApi}&type=cafe`);
-    // const response = await axios.get(`http://localhost:5000/api/spots/coffeelist`);
+    const response = await axios.get(`http://localhost:5000/api/spots/coffeelist`);
     // const response = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.790754,-122.451414&name=&keyword=study,quiet&rankby=distance&key=${mapsApi}&type=cafe`,
-    // const response = await axios.get('https://sf-spots-back-copy.sagdi.now.sh/api/spots/coffeelist');
-    const response = await axios.get(`https://sf-spots-back-copy-b6bvcjz26.now.sh/api/spots/coffeelist`);
     
     console.log('server response:', response)
     return response.data;
@@ -39,9 +36,14 @@ export default function Home() {
           //console.log({ name, position, favorite, neighborhood, photos, rating });
           const { name, photos, rating, id } = spots;
           const position = spots.geometry.location;
-          const neighborhood = spots.plus_code.compound_code.split(' ').filter((el, i) => (
-            i === 1 || i === 2)).join(' ').slice(0, -1);
+
+          // const neighborhood = spots.plus_code.compound_code.split(' ').filter((el, i) => (
+          //   i === 1 || i === 2))
+          //   .join(' ').slice(0, );
+          const neighborhood = spots.vicinity;
+
           //console.log(neighborhood);
+
           return { name, position, neighborhood, photos, rating, id }
         })
       )

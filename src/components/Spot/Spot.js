@@ -1,26 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
+import axios from 'axios';
+import fs from 'fs';
 
 import '../components.css';
 import './Spot.css';
 import MapsView from '../Maps/MapsView';
+import loading from '../images/Spin.svg';
+
+async function getPhoto(photoreference) {
+
+  const url = await axios.get('http://localhost:5000/api/spots/photo', {
+    params: {
+      photoreference
+    }
+  });
+
+  console.log('image', url);
+  return url.data;
+}
 
 function Spot(props) {
+  const [spot, setSpot] = useState(null)
+  const [photo, setPhoto] = useState(null)
+  useEffect(() => {
+    if (props.location.state) {
+      // spot1 = props.location.state.spot;
+      setSpot(props.location.state.spot)
+    }
+    console.log('spot!!!', spot)
+    if (spot && spot.photos && spot.photos.length) {
+      console.log('photos array', spot.photos);
+      getPhoto(spot.photos[0].photo_reference)
+        .then(res => {
+          setPhoto(res);
+        })
+        .catch();
+    }
+
+  }, [props.location.state, props.location.state.spot, spot]);
   
-  let spot = null;
-  if (props.location.state) {
-    spot = props.location.state.spot;
-  }
-  
-  console.log(spot);
+  console.log('photo', photo);
   
   return (
     spot ? (
     <div className="SpotView">
       {/* <div className="CardContainer"> */}
       <div className="InfoContainer">
-        <p style={{fontStyle: "italic", fontSize: '10px'}}>
-          soon photo of the spot <br/> will appear here</p>
+        <div className="image-container">
+          {spot.photos ? photo ? 
+            <img className="image" alt='' src={photo}/> :
+            <img className="" alt='' src={loading}/>
+          : 
+          <p style={{fontStyle: "italic", fontSize: '14px'}}>
+            No picture provided by users <br/> <span style={{fontStyle: 'normal', fontSize: '30px'}}>😞</span>
+          </p>
+          }
+          </div>
         <h2>{spot.name}</h2>
         <p>{spot.neighborhood}</p>
         <p>{spot.type}</p>

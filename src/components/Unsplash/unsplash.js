@@ -19,8 +19,6 @@ export default class Unsplash extends Component {
     const keyWord = this.props.origin === "library" ? "library" : "coffee"
     axios.get(`https://api.unsplash.com/search/photos?page=${random10}&query=${keyWord}%20shop&client_id=${process.env.REACT_APP_UNSPLASH_API}`)
       .then(response => {
-        //console.log(process.env.REACT_APP_UNSPLASH_API);
-        // console.log(response);
         response.data.results.map(res => 
           images.push(res.urls.thumb)
         );
@@ -33,6 +31,7 @@ export default class Unsplash extends Component {
   render() {
     const random10 = Math.floor(Math.random() * 10);
     const randomImage = this.state.images[random10];
+    // console.log('images', this.state.images)
     // console.log('unsplash props', this.props);
     // console.log('random image ', randomImage);
     return (
