@@ -1,9 +1,11 @@
 import React from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
+import mapStyles from "./mapStyles";
 import '../components.css';
 
 const apiKey = process.env.REACT_APP_SFSPOTS_MAPS_API;
+
 
 class MapsView extends React.Component {
   constructor(props) {
@@ -44,7 +46,7 @@ class MapsView extends React.Component {
         <Map
           google={this.props.google}
           zoom={15}
-          // style={mapStyles}
+          styles={this.props.mapStyles}
           initialCenter={spot.position}>
           <Marker
             title={spot.name}
@@ -74,6 +76,8 @@ class MapsView extends React.Component {
     )
   }
 }
+
+MapsView.defaultProps = mapStyles;
 
 export default GoogleApiWrapper({
   apiKey
