@@ -16,7 +16,7 @@ async function getPhoto(photoreference) {
     }
   });
 
-  console.log('image', url);
+  // console.log('image', url);
   return url.data;
 }
 
@@ -28,9 +28,9 @@ function Spot(props) {
       // spot1 = props.location.state.spot;
       setSpot(props.location.state.spot)
     }
-    console.log('spot!!!', spot)
+    // console.log('spot!!!', spot)
     if (spot && spot.photos && spot.photos.length) {
-      console.log('photos array', spot.photos);
+      // console.log('photos array', spot.photos);
       getPhoto(spot.photos[0].photo_reference)
         .then(res => {
           setPhoto(res);
@@ -40,7 +40,7 @@ function Spot(props) {
 
   }, [props.location.state, props.location.state.spot, spot]);
   
-  console.log('photo', photo);
+  // console.log('photo', photo);
   
   return (
     spot ? (

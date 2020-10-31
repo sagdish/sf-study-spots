@@ -53,7 +53,7 @@ export default function Home(props) {
   //   }, 1000)
   // }
   // loader();
-  console.log('current path', props.location);
+  // console.log('current path', props.location);
   return (
     <div>
       {loading ? <Loader /> : (
